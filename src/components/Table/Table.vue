@@ -11,7 +11,10 @@
           <TableBody :field="field" :data="data"></TableBody>
         </table>
       </div>
-      <TablePagination :paginationConfig="paginationConfig"></TablePagination>
+      <TablePagination
+        :paginationFn="paginationFn"
+        :paginationConfig="paginationConfig"
+      ></TablePagination>
     </div>
   </div>
 </template>
@@ -32,6 +35,7 @@ export default {
   props: {
     title: String,
     paginationConfig: Object,
+    paginationFn: Function,
     data: Array,
     field: Array,
   },

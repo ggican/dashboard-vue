@@ -1,8 +1,8 @@
 <template>
   <div id="nav">
-    <div class="md:flex flex-col md:flex-row md:min-h-screen w-full">
-      <nav class="flex flex-col bg-sidebar-background w-64 h-screen">
-        <div class="flex flex-center flex-wrap py-4 px-4">
+    <div class="flex min-h-screen w-full">
+      <nav class="flex flex-col min-h-screen bg-sidebar-background w-64">
+        <div class="flex flex-center items-center flex-wrap py-4 px-4">
           <div class="w-66">
             <img src="./assets/logo-gram.png" />
           </div>
@@ -14,7 +14,7 @@
           <ul>
             <li>
               <router-link
-                to="/"
+                to="/about"
                 class="px-4 items-center py-4 flex flex-row"
                 href="#"
               >
@@ -50,10 +50,7 @@
               </router-link>
             </li>
             <li>
-              <router-link
-                class="px-4 py-4 items-center flex flex-row"
-                to="/about"
-              >
+              <router-link class="px-4 py-4 items-center flex flex-row" to="/">
                 <svg
                   width="18"
                   height="19"
@@ -106,23 +103,48 @@
             "
           >
             <div class="content-header--left w-auto inline-flex">
-              <h1 class="text-xl font-bold w-auto">Title</h1>
+              <h1 class="text-xl font-bold w-auto">{{ title }}</h1>
             </div>
             <div class="content-header--right w-auto d-inline-flex">
               <div class="content-header--menu flex items-center">
-                <span class="mr-2">Jones Ferdinand</span>
-                <div class="content-header--avatar w-11 inline-flex">
+                <span class="mr-3.5 font-semibold">Jones Ferdinand</span>
+                <div
+                  class="
+                    content-header--avatar
+                    w-12
+                    inline-flex
+                    p-0.5
+                    border-2 border-table
+                    rounded-full
+                  "
+                >
                   <img src="./assets/avatar.png" class="w-full rounded-full" />
                 </div>
               </div>
             </div>
           </div>
-          <router-view />
+          <router-view @titlePage="onGetTitlePage" />
         </div>
       </div>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: "App",
+  data() {
+    return {
+      title: "",
+    };
+  },
+  methods: {
+    onGetTitlePage(values) {
+      this.title = values;
+    },
+  },
+};
+</script>
 
 <style lang="less">
 #app {

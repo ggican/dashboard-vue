@@ -10,11 +10,15 @@ module.exports = {
         sidebar: {
           text: "#b3b3b3",
         },
+        detail:"#828282",
         table: {
           head: "#9FA2B4",
         },
       },
       colors: {
+        button: {
+          detail: "#65A7DB",
+        },
         sidebar: {
           background: "#363740",
           text: "#A4A6B3",

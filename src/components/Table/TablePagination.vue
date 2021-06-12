@@ -3,41 +3,51 @@
     id="pagination"
     class="w-full mt-12 flex justify-end px-4 py-4 items-end"
   >
+    <p
+      class="
+        leading-relaxed
+        font-normal
+        text-table-head
+        cursor-pointer
+        mx-2
+        text-sm
+      "
+    >
+      {{ paginationConfig.wording }}
+    </p>
     <svg
-      class="h-6 w-6"
+      v-on:click="paginationFn('prev')"
+      class="h-6 w-6 cursor-pointer"
       width="24"
       height="24"
       viewBox="0 0 24 24"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g opacity="0.4">
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M9 12C9 12.2652 9.10536 12.5196 9.29289 12.7071L13.2929 16.7072C13.6834 17.0977 14.3166 17.0977 14.7071 16.7072C15.0977 16.3167 15.0977 15.6835 14.7071 15.293L11.4142 12L14.7071 8.70712C15.0977 8.31659 15.0977 7.68343 14.7071 7.29289C14.3166 6.90237 13.6834 6.90237 13.2929 7.29289L9.29289 11.2929C9.10536 11.4804 9 11.7348 9 12Z"
-          fill="#9FA2B4"
-        />
-      </g>
+      <path
+        fill-rule="evenodd"
+        clip-rule="evenodd"
+        d="M9 12C9 12.2652 9.10536 12.5196 9.29289 12.7071L13.2929 16.7072C13.6834 17.0977 14.3166 17.0977 14.7071 16.7072C15.0977 16.3167 15.0977 15.6835 14.7071 15.293L11.4142 12L14.7071 8.70712C15.0977 8.31659 15.0977 7.68343 14.7071 7.29289C14.3166 6.90237 13.6834 6.90237 13.2929 7.29289L9.29289 11.2929C9.10536 11.4804 9 11.7348 9 12Z"
+        fill="#9FA2B4"
+      />
     </svg>
 
-    <!-- <p
+    <!-- -->
+    <p
       class="
         leading-relaxed
+        font-normal
+        text-table-head
         cursor-pointer
         mx-2
-        text-blue-600
-        hover:text-blue-600
         text-sm
       "
     >
-      1
-    </p> -->
-    <p class="leading-relaxed cursor-pointer mx-2 text-sm hover:text-blue-600">
-      2
+      {{ paginationConfig.page }}
     </p>
     <svg
-      class="h-6 w-6"
+      v-on:click="paginationFn('next')"
+      class="h-6 w-6 cursor-pointer"
       width="24"
       height="24"
       viewBox="0 0 24 24"
@@ -61,6 +71,7 @@ export default {
   name: "TablePagination",
   props: {
     paginationConfig: Object,
+    paginationFn: Function,
   },
 };
 </script>
