@@ -4,9 +4,16 @@ import "./registerServiceWorker";
 import router from "./router";
 import "./index.css";
 
-createApp(App).use(router).mount("#app");
+import axios from "axios";
+import VueAxios from "vue-axios";
 
-// const router = new VueRouter({
-//     mode: 'history',
-//     routes: router
-//   })
+// createApp(App).use(router, VueAxios, axios).mount("#app");
+
+// import { createApp } from 'vue'
+// import axios from 'axios'
+// import VueAxios from 'vue-axios'
+
+const app = createApp(App);
+app.use(router);
+app.use(VueAxios, axios);
+app.mount("#app");

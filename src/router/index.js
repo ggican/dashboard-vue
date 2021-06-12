@@ -21,6 +21,8 @@ const routes = [
 const router = createRouter({
   mode: "history",
   history: createWebHistory(),
+  linkActiveClass: "bg-sidebar-button-active",
+  linkExactActiveClass: "exact-active",
   routes,
 });
 
